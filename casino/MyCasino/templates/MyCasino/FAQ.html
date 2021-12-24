@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/FAQ.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Work #2</title>
+  </head>
+  <body>
+    {% include "MyCasino/navbar.html" %}
+    <div class="background">
+      <div class="inner-canvas" style="padding-bottom: 5%; padding-top: 5%">
+        <h3 class="cursive-text center-align white-text">
+          Frequently Asked Questions
+        </h3>
+        <div
+          class="main-faq-info"
+          style="border: 0px transparent black !important; outline: none"
+        >
+          <h2 class="red-dark-text cursive-text" style="margin-left: 5%">
+            Insurance
+          </h2>
+          <ul
+            class="collapsible"
+            style="border: 0px transparent black !important; outline: none"
+          >
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                What do i need to do to achieve an insurance by your hotel &
+                casino?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >You can sign all nessesary papers right on our reception. Our
+                  staff will help you out, where do you need to sign (it may be
+                  your initials or signature by itself).</span
+                >
+              </div>
+            </li>
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                How many month will it last?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >It depends on how much time would you like to spend in our
+                  hotel. For example: if you want to stay for about 2-3 weeks,
+                  then our insurance will be working for 21 days.</span
+                >
+              </div>
+            </li>
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                I have been injured during my vacancy in your hotel. Who can i
+                contact to get my insurance paid?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >No one. It is absolutely your fault to get injured in our
+                  hotel. We have passed through different sertifications that
+                  are saying about our safety. Also, you have read a safety
+                  policy that we have shown you in broushure. So, well, shut
+                  up.</span
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="main-faq-info"
+          style="border: 0px transparent black !important; outline: none"
+        >
+          <h2 class="red-dark-text cursive-text" style="margin-left: 5%">
+            Swimming
+          </h2>
+          <ul
+            class="collapsible"
+            style="border: 0px transparent black !important; outline: none"
+          >
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                Can i let my children play with sharks?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >Of course! It will be great experience for both: your baby
+                  and our cute little fishes! Also, you can get paid for feeding
+                  our sharks. Approximately 1-2$ per child.</span
+                >
+              </div>
+            </li>
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                Do you have water scooters or something?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >Yes, we have such kind of entertainment on our beach. The
+                  most popular of them - banana, when you ride big piece of
+                  rubber looking pretty much like real banana and the last man
+                  standing wins.</span
+                >
+              </div>
+            </li>
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                Can we use a boat to swim far from the beach?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >Yep, we have always wanted to record cheap version of "Life
+                  of Phi".</span
+                >
+              </div>
+            </li>
+            <li style="border: 0px transparent black !important; outline: none">
+              <div class="collapsible-header thin-writing element-header">
+                Do you have pools on your territory?
+              </div>
+              <div class="collapsible-body black-text thin-writing">
+                <span
+                  >Yes! We DO have pools filled with acid, coca-cola and other
+                  things that you do now want to swim in.</span
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% include "MyCasino/footer.html" %}
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".collapsible");
+        var options = {};
+        var instances = M.Collapsible.init(elems, options);
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".sidenav");
+        var options = {};
+        var instances = M.Sidenav.init(elems, options);
+      });
+    </script>
+  </body>
+</html>

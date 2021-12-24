@@ -1,0 +1,69 @@
+{% load static %} {% load feedback_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/feedbacks.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Work #2</title>
+</head>
+
+<body>
+    {% include "MyCasino/navbar.html" %}
+    <div class="background">
+        <div class="inner-canvas" style="padding-bottom: 5%; padding-top: 5%;">
+            {% if feedbacks %}
+            <h3 class="white-text cursive-text center-align feedbacks-header">If you want, you can also check feedbacks about our casino and resort</h3>
+            <div class="row">
+                {% for feedback in feedbacks %}
+                <div class="col s12 feedback-wrapper">
+                    <a href="profile?user_id={{feedback.owner.id}}">
+
+                        <div class="feedback-card">
+                            <div class="row info-wrapper white-text">
+                                <div class="col s12 m3 center-align">
+                                    {% if feedback.owner.player.avatar %}
+                                    <img src="{{feedback.owner.player.avatar.url}}" alt="" class="feedback-user-photo"> {% else %}
+                                    <img src="{% static 'img/guest-user.jpg' %}" alt="" class="feedback-user-photo"> {% endif %}
+                                </div>
+                                <div class="col s12 m9">
+                                    <div class="row">
+                                        <div class="col s12 m4 center-align">
+                                            <span class="cursive-text feedback-header">{{feedback.owner.first_name}} {{feedback.owner.last_name}} | {{feedback.owner.id}}</span>
+                                        </div>
+                                        <div class="col s12 m4 rating center-align">
+                                            {% for star in feedback.rating|times %}
+                                            <img src="{% static 'img/star-rating.png' %}" alt="" srcset="" class="star-rating "> {% endfor %} {% for star in feedback.rating|timesMinusFive %}
+                                            <img src="{% static 'img/star-rating.png' %}" alt="" srcset="" class="star-rating unactive-rating"> {% endfor %}
+                                        </div>
+                                        <div class="col s12 center-align">{{feedback.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h1 class="white-text">Oops! Seems like we have not feedbacks yet.
+                <h1>
+                    {% endif %}
+        </div>
+        {% include "MyCasino/footer.html" %}
+        <script src="{% static 'js/materialize.js' %}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.sidenav');
+                var options = {};
+                var instances = M.Sidenav.init(elems, options);
+            });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+.main-info {
+    background-color: rgba(27, 27, 27, 0.95);
+    padding: 1%;
+    min-height: 1080px;
+}
+
+.user-profile-photo {
+    display: inline-block;
+    border-radius: 50%;
+    width: calc(8vw + 8em);
+    height: calc(8vw + 8em);
+}
+
+.info-header {
+    font-size: calc(0.8vw + 0.8em);
+}
+
+.info-label {
+    font-size: calc(0.8vw + 0.8em);
+    font-weight: 500;
+}
+
+.info-data {
+    font-size: calc(0.7vw + 0.8em);
+}
+
+.info-block {
+    padding: 2%;
+}

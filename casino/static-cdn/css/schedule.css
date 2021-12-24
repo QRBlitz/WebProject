@@ -1,0 +1,36 @@
+.background {
+    background-image: url("../img/sharks_schedule_back.jpg");
+}
+
+.main-schedule-table {
+    background-color: rgba(27, 27, 27, 0.9);
+}
+
+.table-element {
+    padding: 0.25% !important;
+    background-color: rgba(183, 0, 0, 0.8);
+}
+
+.cell-container {
+    background-color: rgba(27, 27, 27, 1);
+}
+
+.cell-date {
+    margin: 0px 10px 0px 10px;
+    font-size: calc(1vw + 1em);
+}
+
+.cell-date-number {
+    float: right;
+    margin: 0px 10px 0px 10px;
+    font-size: calc(1vw + 1em);
+}
+
+.cell-list {
+    margin: 0px 10px 0px 10px;
+}
+
+.cell-action-list {
+    list-style-type: circle !important;
+    margin: 0px 10px 0px 10px;
+}

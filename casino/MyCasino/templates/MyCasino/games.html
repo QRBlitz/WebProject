@@ -1,0 +1,309 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta token={{ csrf_token }} class="csrf_token"> {% if user.is_authenticated %}
+    <meta userId={{ user.id }} class="user_id"> {% endif %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/games.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slotgame.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/wheelgame.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/registration-form.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Work #2</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="row" style="margin: 0%">
+            <div class="col s1">
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons inline-icon custom-beige-font">menu</i></a
+          ><a
+            href="#"
+            data-target="slide-out"
+            class="
+              sidenav-trigger
+              white-text
+              hide-on-med-and-down
+              nav-text
+              thin-writing
+            "
+            style="font-size: calc(0.4vw + 0.4em)"
+            >MENU</a
+          >
+        </div>
+        <div class="col m2 hide-on-med-and-down">
+          {% if user.is_authenticated %}
+          <a
+            href="logout"
+            class="white-text custom-btn hide-on-med-and-down thin-writing"
+            style="font-size: calc(0.4vw + 0.4em)"
+            >LOG OUT</a
+          >
+          {% else %}
+          <a
+            href="registration"
+            class="white-text custom-btn hide-on-med-and-down thin-writing"
+            style="font-size: calc(0.4vw + 0.4em)"
+            >BECOME A MEMBER</a
+          >
+          {% endif %}
+        </div>
+        <div class="col s9 m2 offset-m2">
+          <a href="/" class="logo">Casino</a>
+            </div>
+            <div class="col s1 m1 offset-m3 center-align">
+                <a href="#"><i class="material-icons inline-icon custom-beige-font"
+              >date_range</i
+            ></a
+          ><a
+            href="#"
+            class="white-text right hide-on-med-and-down nav-text thin-writing"
+            style="font-size: calc(0.4vw + 0.4em)"
+            >BOOK NOW</a
+          >
+        </div>
+        <div class="col s1 m1 center-align">
+          <a href="#"
+            ><i class="material-icons inline-icon custom-beige-font"
+              >location_on</i
+            ></a
+          ><a
+            href="#"
+            class="white-text right hide-on-med-and-down nav-text thin-writing"
+            style="font-size: calc(0.4vw + 0.4em)"
+            >OUR CASINOS</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="slide-out" class="sidenav sidenav-bckgd">
+      <div class="user-info white-text">
+        {% if user.is_authenticated %}
+        <div class="user-avatar">
+          <div class="inner-canvas">
+            <h4 class="user-name">{{user.first_name}} {{user.last_name}}</h4>
+            <span class="white-text">Country: {{user.player.country}}</span>
+            <br />
+            <span class="white-text">Age: {{user.player.age}}</span>
+          </div>
+        </div>
+        {% else %}
+        <div class="user-avatar">
+          <div class="inner-canvas">
+            <h4 class="user-name">Guest</h4>
+            <span class="white-text">Country: Unknown</span> <br />
+            <span class="white-text">Age: Unknown</span>
+          </div>
+        </div>
+        {% endif %}
+        <div class="additional-navbar-functionality container">
+          {% if user.is_authenticated %}
+          <h5 class="white-text">Balance: {{user.player.balance}}$</h5>
+          {% else %}
+          <h5 class="white-text">Balance: 0$</h5>
+          {% endif %}
+          <a href="payment" class="white-text">
+            <h6 class="cursive-text"><u>Withdraw</u></h6>
+          </a>
+                <hr />
+                <a href="games" class="white-text navbar-buttons"><i class="material-icons inline-icon">games</i>Games</a
+          >
+          <a href="profile" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">account_circle</i>Personal
+            cabinet</a
+          >
+          <a href="#" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">settings</i>Settings</a
+          >
+          <hr />
+          <a href="#" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">priority_high</i>Rules &
+            conditions</a
+          >
+          <a href="#" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">perm_identity</i
+            >Administration</a
+          >
+          <a href="FAQ" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">book</i>FAQ</a
+          >
+          <a href="#" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">help</i>Help and guidance</a
+          >
+          <a href="schedule" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">pool</i>Sharks shedule</a
+          >
+          <a href="feedbacks" class="white-text navbar-buttons"
+            ><i class="material-icons inline-icon">feedback</i>Feedbacks</a
+          >
+        </div>
+        {% if user.is_authenticated %}
+        <a
+          href="logout"
+          class="custom-btn sidenav-account-btn sidenav-account-btn-left"
+          >Log out from your account</a
+        >
+        {% else %}
+        <a
+          href="login"
+          class="custom-btn sidenav-account-btn sidenav-account-btn-left"
+          >Sign In</a
+        >
+        <a
+          href="registration"
+          class="custom-btn sidenav-account-btn sidenav-account-btn-right"
+          >Register</a
+        >{% endif %}
+      </div>
+    </div>
+    <div class="background">
+      <div class="inner-canvas" style="padding: 2% 3% 2% 3%">
+        <div class="row center-align">
+            <div class="col l4 m6 s12 white-text">
+                <div class="game-card">
+                    <div class="card-header">
+                        <h2 style="font-size: calc(1.5vw + 1.5em);">One-Armed-Bandit</h2>
+                        <div class="card-background">
+                            <div class="card-info-container white-text center-align">
+                            <p>Excellent game for beginner players that just want to relax and <s class="red-text ">lose</s> win some good amount of money. Ladies and gentleman, let me introduce you the most old and famous game around all the casinos in the world: <u>Bandit Slot Machine!</u>
+                            </p>
+                              <img class="game-logo" src="{% static 'img/one-armed-bandit-logo.png' %}" alt="">
+                                <br>
+                                <a class="custom-btn-green btn-background-dark thin-writing play-btn modal-trigger" href="#slotgame">Play Now!</a>
+            </div>
+            <div class="center-align">
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="col l4 m6 s12 white-text">
+        <div class="game-card">
+            <div class="card-header">
+                <h2 style="font-size: calc(1.5vw + 1.5em);">Pirate's hat</h2>
+                <div class="card-background">
+                    <div class="card-info-container white-text center-align">
+                        <p>"ARRGGHH!!! Give me that bottle of nice-brewed rome! I am going to make some serious money in here!" - That's what real pirate would say! Test your luck in this beautiful designed game: <u>Pirate's hat!</u></p>
+                        <img class="game-logo" src="{% static 'img/pirates-hat-logo.png' %}" alt="">
+                        <br>
+                        <a class="custom-btn-red btn-background-dark thin-writing red-text modal-trigger">Coming soon!</a>
+                    </div>
+                    <div class="center-align">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col l4 m6 s12 white-text">
+        <div class="game-card">
+            <div class="card-header">
+                <h2 style="font-size: calc(1.5vw + 1.5em);">Classic wheel of fortune</h2>
+                <div class="card-background">
+                    <div class="card-info-container white-text center-align">
+                        <p>You are a boomer who recognizes only an Old School games? Awesome! Only at our casino you can spin the wheel of fortune and try your luck to win some good cash! Ladies and gentleman, let me introduce you to <u>Wheel of Fortune!</u>
+                        </p>
+                        <img class="game-logo" src="{% static 'img/roulette-logo.png' %}" alt="">
+                        <br>
+                        <a class="custom-btn-green btn-background-dark thin-writing play-btn modal-trigger" href="#roulettegame">Play Now!</a>
+                    </div>
+                    <div class="center-align">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="slotgame" class="modal grey darken-4 white-text" style="max-height: 100%; overflow: visible;">
+        <div class="modal-content">
+
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="monitor">
+                        <div class="slot-photo-wrapper">
+                            <img src="{% static 'img/seven-section.png' %}" alt="" srcset="" class="slot-photo slot1 ">
+                        </div>
+                        <div class="slot-photo-wrapper">
+                            <img src="{% static 'img/coin-section.png' %}" alt="" srcset="" class="slot-photo slot2">
+                        </div>
+                        <div class="slot-photo-wrapper">
+                            <img src="{% static 'img/cherry-section.png' %}" alt="" srcset="" class="slot-photo slot3">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="controls">
+                        <h4 style="margin: 5%;">Total win: <span class="green-text total-win">0$</span></h4>
+                        <h5>Current amount of money: <span class="green-text user-balance">{{user.player.balance}}$</span></h5>
+                        <input type="number" value="0" class="white-text bet-field" max="{{user.player.balance}}" required>
+                        <button class="custom-btn-green spin-button" style="background: transparent; color: white; font-size: calc(1vw + 1em);">SPIN!</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="roulettegame" class="modal grey darken-4 white-text" style="max-height: 100% !important;">
+        <div class="modal-content">
+
+
+            <div class="row">
+                <div class="col s12 m8">
+                    <div id="mainbox" class="mainbox animate">
+                        <div class="center-align white-text">
+                            <i class="material-icons">arrow_downward</i>
+                        </div>
+                        <div id="box" class="box">
+                            <div class="box1">
+                                <span class="span1 amber"><b>Try again</b></span>
+                                <span class="span2 green"><b>x3</b></span>
+                                <span class="span3 red darken-4"><b>Bankrupt</b></span>
+                                <span class="span4 red darken-4"><b>Bankrupt</b></span>
+                            </div>
+                            <div class="box2">
+                                <span class="span1 green"><b>x3</b></span>
+                                <span class="span2 red darken-4"><b>Bankrupt</b></span>
+                                <span class="span3 black"><b>Loss</b></span>
+                                <span class="span4 green"><b>x3</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 valign-wrapper">
+                    <div class="controls">
+                        <h4 style="margin: 5%;">Total win: <span class="green-text wheel-total-win">0$</span></h4>
+                        <h5>Current amount of money: <span class="green-text user-wheel-balance">{{user.player.balance}}$</span></h5>
+                        <input type="number" placeholder="Your bet" class="white-text wheel-bet-field">
+                        <button class="custom-btn-green spin-wheel-button" style="background: transparent; color: white; font-size: calc(1vw + 1em);">SPIN!</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="{% static 'js/randomBackground.js' %}"></script>
+
+    {% include "MyCasino/footer.html" %}
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/wheelgame.js' %}"></script>
+    <script src="{% static 'js/slotgame.js' %}"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var elems = document.querySelectorAll(".sidenav");
+            var options = {};
+            var instances = M.Sidenav.init(elems, options);
+        });
+    </script>
+</body>
+
+</html>

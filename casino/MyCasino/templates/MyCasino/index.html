@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Work #2</title>
+  </head>
+
+  <body>
+    {% include "MyCasino/navbar.html" %}
+    <div class="main-bckgd">
+      <div class="inner-canvas darken-background center-align">
+        <h1 class="white-text" style="margin: 0px">WHERE A GREAT NIGHT</h1>
+        <h3
+          class="white-text cursive-text"
+          style="margin: 0px; margin-bottom: 5%"
+        >
+          Is always on the cards
+        </h3>
+        <a
+          href=""
+          class="custom-btn darken-background white-bordered"
+          style="font-size: calc(1vw + 1em)"
+          >FIND OUT MORE</a
+        >
+        <i
+          class="
+            material-icons
+            carousel-btns
+            hide-on-med-and-down
+            carousel-btn-left
+          "
+          style="font-size: calc(2vw + 2em)"
+          >chevron_left</i
+        >
+        <i
+          class="
+            material-icons
+            carousel-btns
+            hide-on-med-and-down
+            carousel-btn-right
+          "
+          style="font-size: calc(2vw + 2em)"
+          >chevron_right</i
+        >
+      </div>
+    </div>
+    <div class="additional-info white center-align container">
+      <h1 style="margin-bottom: 4%">
+        COME AND TRY THE BEST SERVISE YOU HAVE EVER HAD
+      </h1>
+      <div class="row">
+        <div class="col l3 m6 s12 white-text center-align">
+          <div class="circle-card hoverable">
+            <h4 class="circle-card-header">Best cafes</h4>
+            <p>
+              In our casinos you can find different restaurants and cafes to
+              satisfy your foreign taste. From M'cdonalds to a Guestao 5-star
+              cafe.
+            </p>
+          </div>
+        </div>
+        <div class="col l3 m6 s12 white-text center-align">
+          <div class="circle-card hoverable">
+            <h4 class="circle-card-header">Slot machines</h4>
+            <p>
+              Try your luck in slots. Only one lever pull could define your
+              destiny and whealth for a long time in future.
+            </p>
+          </div>
+        </div>
+        <div class="col l3 m6 s12 white-text center-align">
+          <div class="circle-card hoverable">
+            <h4 class="circle-card-header">Roulette</h4>
+            <p>
+              Today and only today you can try our brand-new game: "RUSSIAN
+              ROULETTE". Try your best and pay fee for a cleaner before playing.
+            </p>
+          </div>
+        </div>
+        <div class="col l3 m6 s12 white-text center-align">
+          <div class="circle-card hoverable">
+            <h4 class="circle-card-header">Booking</h4>
+            <p>
+              Our service provides our clients a free hotel room right above our
+              casino. Want to sleep? No problem, just ask receptionist to give
+              you the keys from your apartment and here you go! Best view in las
+              vegas.
+            </p>
+          </div>
+        </div>
+      </div>
+      <h2 class="cursive-text custom-beige-font" style="margin-bottom: 5%">
+        We are caring about our clients to make the best vacancy in their life.
+      </h2>
+    </div>
+    <div class="divided-info row">
+      <div class="col l6 left-divided-section white-text">
+        <div
+          class="
+            inner-canvas
+            darken-background-red
+            container
+            center-align
+            white-text
+          "
+        >
+          <h1>Don't forget your welcome drink!</h1>
+          <p>
+            For all of our guests we are offering welcoming drink that will help
+            you relax and enjoy best vacation you have ever had. Also, all
+            drinks in the bar is free for a special guests.
+          </p>
+          <a
+            href="registration"
+            class="custom-btn"
+            style="font-size: calc(1vw + 1em)"
+            >Become a special guest</a
+          >
+        </div>
+      </div>
+      <div class="col l6 center-align right-divided-section white-text">
+        <div class="inner-canvas darken-background container">
+          <h1>Enjoy a gorgeous view on the ocean!</h1>
+          <p>
+            Do you like an ocean? We too! That is the reason why we have build a
+            pierce on our beach. For our lovely clients! You can enjoy it from
+            9AM to 7PM. Because after 7PM oursharks are going to have a walk.
+          </p>
+          <a
+            href="registration"
+            class="custom-btn"
+            style="font-size: calc(1vw + 1em)"
+            >Learn more</a
+          >
+        </div>
+      </div>
+    </div>
+    {% include "MyCasino/footer.html" %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".sidenav");
+        var options = {};
+        var instances = M.Sidenav.init(elems, options);
+      });
+    </script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/carousel.js' %}"></script>
+  </body>
+</html>

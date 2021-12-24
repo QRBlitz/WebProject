@@ -1,0 +1,155 @@
+<div class="header">
+  <div class="row" style="margin: 0%">
+    <div class="col s1">
+      <a href="#" data-target="slide-out" class="sidenav-trigger"
+        ><i class="material-icons inline-icon custom-beige-font">menu</i></a
+      ><a
+        href="#"
+        data-target="slide-out"
+        class="
+          sidenav-trigger
+          white-text
+          hide-on-med-and-down
+          nav-text
+          thin-writing
+        "
+        style="font-size: calc(0.4vw + 0.4em)"
+        >MENU</a
+      >
+    </div>
+    <div class="col m2 hide-on-med-and-down">
+      {% if user.is_authenticated %}
+      <a
+        href="{% url 'logout' %}"
+        class="white-text custom-btn hide-on-med-and-down thin-writing"
+        style="font-size: calc(0.4vw + 0.4em)"
+        >LOG OUT</a
+      >
+      {% else %}
+      <a
+        href="{% url 'registration' %}"
+        class="white-text custom-btn hide-on-med-and-down thin-writing"
+        style="font-size: calc(0.4vw + 0.4em)"
+        >BECOME A MEMBER</a
+      >
+      {% endif %}
+    </div>
+    <div class="col s9 m2 offset-m2">
+      <a href="/" class="logo">Casino</a>
+    </div>
+    <div class="col s1 m1 offset-m3 center-align">
+      <a href="#"
+        ><i class="material-icons inline-icon custom-beige-font"
+          >date_range</i
+        ></a
+      ><a
+        href="#"
+        class="white-text right hide-on-med-and-down nav-text thin-writing"
+        style="font-size: calc(0.4vw + 0.4em)"
+        >BOOK NOW</a
+      >
+    </div>
+    <div class="col s1 m1 center-align">
+      <a href="{% url 'location' %}"
+        ><i class="material-icons inline-icon custom-beige-font"
+          >location_on</i
+        ></a
+      ><a
+        href="{% url 'location' %}"
+        class="white-text right hide-on-med-and-down nav-text thin-writing"
+        style="font-size: calc(0.4vw + 0.4em)"
+        >OUR CASINOS</a
+      >
+    </div>
+  </div>
+</div>
+
+<div id="slide-out" class="sidenav sidenav-bckgd">
+  <div class="user-info white-text">
+    {% if user.is_authenticated %} {% if user.player.avatar %}
+    <div
+      class="user-avatar"
+      style="background-image:
+    url({{user.player.avatar.url}})"
+    >
+      {% else %}
+      <div class="user-avatar">
+        {% endif %}
+        <div class="inner-canvas">
+          <h4 class="user-name">{{user.first_name}} {{user.last_name}}</h4>
+          <span class="white-text">Country: {{user.player.country}}</span>
+          <br />
+          <span class="white-text">Age: {{user.player.age}}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="user-avatar">
+        <div class="inner-canvas">
+          <h4 class="user-name">Guest</h4>
+          <span class="white-text">Country: Unknown</span> <br />
+          <span class="white-text">Age: Unknown</span>
+        </div>
+      </div>
+      {% endif %}
+      <div class="additional-navbar-functionality container">
+        {% if user.is_authenticated %}
+        <h5 class="white-text">Balance: {{user.player.balance}}$</h5>
+        {% else %}
+        <h5 class="white-text">Balance: 0$</h5>
+        {% endif %}
+        <a href="payment" class="white-text">
+          <h6 class="cursive-text"><u>Withdraw</u></h6>
+        </a>
+        <hr />
+        <a href="{% url 'games' %}" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">games</i>Games</a
+        >
+        <a href="{% url 'profile' %}" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">account_circle</i>Personal
+          cabinet</a
+        >
+        <a href="#" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">settings</i>Settings</a
+        >
+        <hr />
+        <a href="#" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">priority_high</i>Rules &
+          conditions</a
+        >
+        <a href="#" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">perm_identity</i
+          >Administration</a
+        >
+        <a href="{% url 'faq' %}" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">book</i>FAQ</a
+        >
+        <a href="#" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">help</i>Help and guidance</a
+        >
+        <a href="{% url 'schedule' %}" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">pool</i>Sharks shedule</a
+        >
+        <a href="{% url 'feedbacks' %}" class="white-text navbar-buttons"
+          ><i class="material-icons inline-icon">feedback</i>Feedbacks</a
+        >
+      </div>
+      {% if user.is_authenticated %}
+      <a
+        href="{% url 'logout' %}"
+        class="custom-btn sidenav-account-btn sidenav-account-btn-left"
+        >Log out from your account</a
+      >
+      {% else %}
+      <a
+        href="{% url 'login' %}"
+        class="custom-btn sidenav-account-btn sidenav-account-btn-left"
+        >Sign In</a
+      >
+      <a
+        href="{% url 'registration' %}"
+        class="custom-btn sidenav-account-btn sidenav-account-btn-right"
+        >Register</a
+      >{% endif %}
+    </div>
+  </div>
+</div>

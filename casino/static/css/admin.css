@@ -1,0 +1,40 @@
+.background {
+    background-color: rgb(27, 27, 27);
+}
+
+.element-header {
+    color: white;
+    font-weight: 700;
+    font-size: calc(0.8vw + 0.8em);
+    transition: 0.4s;
+}
+
+.element-header:hover {
+    color: black;
+    background-color: white;
+    transition: 0.4s;
+}
+
+.collapsible-header {
+    background-color: rgba(27, 27, 27, 0.9);
+    border: 0px transparent rgba(27, 27, 27, 0.9) !important;
+    outline: none !important;
+}
+
+.collapsible-body {
+    font-weight: 700;
+    font-size: calc(0.8vw + 0.8em);
+    border: none;
+    outline: none !important;
+    background-color: white !important;
+    padding: 2%;
+}
+
+.list-of-items {
+    width: 100%;
+}
+
+.item {
+    font-size: calc(0.5vw + 0.5em);
+    width: 100%;
+}

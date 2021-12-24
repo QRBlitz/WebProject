@@ -1,0 +1,43 @@
+.background {
+    background-image: url("../img/feedback_background.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.feedback-wrapper {
+    padding: 15px;
+}
+
+.feedback-card {
+    background-color: rgba(27, 27, 27, 0.9);
+}
+
+.info-wrapper {
+    padding: 5%;
+}
+
+.feedback-user-photo {
+    width: 100%;
+}
+
+.star-rating {
+    width: 30px;
+}
+
+.unactive-rating {
+    filter: grayscale(100%);
+}
+
+.feedback-user-photo {
+    border-radius: 100%;
+    width: 10em;
+    height: 10em;
+}
+
+.feedbacks-header {
+    font-size: calc(1.4vw + 1.4em);
+}
+
+.feedback-header {
+    font-size: calc(1.4vw + 1.4em);
+}

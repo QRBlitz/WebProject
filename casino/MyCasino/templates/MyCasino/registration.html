@@ -1,0 +1,150 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/registration-form.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Work #2</title>
+  </head>
+
+  <body>
+    {% include "MyCasino/navbar.html" %}
+    <div class="background">
+      <div class="inner-canvas">
+        <div class="form-wrapper container white-text center-align">
+          <form
+            action=""
+            method="POST"
+            class="container center-align"
+            style="padding: 1%"
+          >
+            <div class="input-field">{% csrf_token %}</div>
+            {% if err %}
+            <h2
+              class="cursive-text center-align red-text"
+              style="font-size: calc(1vw + 1em + 15px)"
+            >
+              {{err}}
+            </h2>
+            {% else %}
+            <h2
+              class="cursive-text center-align"
+              style="font-size: calc(1vw + 1em + 15px)"
+            >
+              Fill the form below
+            </h2>
+            {% endif %}
+            <div class="input-field">
+              <input
+                name="username"
+                type="text"
+                placeholder="Login"
+                class="thin-writing white-text custom-input"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="email"
+                type="text"
+                placeholder="Email"
+                class="thin-writing white-text custom-input"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                class="thin-writing white-text custom-input"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="password_confirm"
+                type="password"
+                placeholder="Confrirm password"
+                class="thin-writing white-text custom-input"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="fname"
+                type="text"
+                placeholder="First Name"
+                class="thin-writing white-text custom-input"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="lname"
+                type="text"
+                placeholder="Second Name"
+                class="thin-writing white-text custom-input"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="bday"
+                placeholder="Birth Date"
+                class="textbox-n thin-writing white-text custom-input"
+                type="text"
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+                id="date"
+              />
+            </div>
+            <div class="input-field">
+              <input
+                name="country"
+                type="text"
+                id="autocomplete-input"
+                placeholder="Country"
+                class="autocomplete thin-writing white-text custom-input"
+              />
+            </div>
+            <button
+              type="submit"
+              class="custom-btn submitting-button thin-writing"
+              style="font-size: calc(0.7vw + 0.7em)"
+            >
+              Submit form
+            </button>
+          </form>
+          <span class="center-align thin-writing"
+            >Already have an account?<a href="login" class="white-text"
+              ><u>Sign In</u></a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+
+    {% include "MyCasino/footer.html" %}
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/getAllCountryInfo.js' %}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".autocomplete");
+        var options = {
+          data: countryData,
+          limit: 3,
+        };
+        var instances = M.Autocomplete.init(elems, options);
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".sidenav");
+        var options = {};
+        var instances = M.Sidenav.init(elems, options);
+      });
+    </script>
+  </body>
+</html>

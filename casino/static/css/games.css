@@ -1,0 +1,37 @@
+.background {
+    background-image: url("../img/games_list_background.jpg");
+}
+
+.game-card {
+    background-color: rgba(27, 27, 27, 0.9);
+}
+
+.card-background {
+    background-image: url("../img/games_list_background-2.jpg");
+}
+
+.card-info-container {
+    background-color: rgba(27, 27, 27, 0.7);
+    padding: 5%;
+}
+
+.card-header {
+    padding: 1%;
+}
+
+.play-btn {
+    font-weight: 400;
+    font-size: calc(0.6vw + 0.7em);
+}
+
+.game-logo {
+    width: 50%;
+}
+
+.custom-input {
+    color: white;
+}
+
+.bet-field {
+    font-size: calc(1vw + 1em);
+}

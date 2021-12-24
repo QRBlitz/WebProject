@@ -1,0 +1,132 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta token="{{ csrf_token }}" class="csrf_token" />
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Work #2</title>
+</head>
+
+<body>
+    {% include "MyCasino/navbar.html" %}
+    <div class="background" style="min-height: 800px">
+        <div class="inner-canvas" style="padding: 2% 3% 2% 3%; height: 800px">
+            <div class="main-info center-align">
+                <div class="row">
+                    {% if msg %}
+                    <h1 class="white-text center-align">{{msg}}</h1>
+                    {% else %}
+                    <div class="col s12 m3 center-align left-section">
+                        <h2 class="center-align white-text" style="font-size: calc(1.2vw + 1.2em)">
+                            {{user1.first_name}} {{user1.last_name}} #{{user1.id}}
+                        </h2>
+                        {% if user1.player.avatar %}
+                        <img src="{{user1.player.avatar.url}}" alt="" class="user-profile-photo" /> {% else %}
+                        <img src="{% static 'img/guest-user.jpg' %}" alt="" class="user-profile-photo" /> {% endif %} {% if user.is_authenticated and user.id == user1.id %}
+                        <div class="center-align">
+                            <a class="white-text custom-btn update-avatar-btn">Update avatar</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col s12 m9">
+                        <div class="row center-align">
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">First name:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.first_name}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Second Name:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.last_name}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Age:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.age}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Country:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.country}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Favourite slot:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.favorite_slot}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Hotel room:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.hotel_room}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Amount of people, arrived in hotel:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.with_amount}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Has an insurance</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.insurance}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Have been injured during vacancy:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.injured}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Senior:</span>
+                                    <span class="white-text thin-writing info-data">{{user1.player.is_senior}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Total lost:</span>
+                                    <span class="thin-writing info-data red-dark-text">{{user1.player.lost}}$</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 x2">
+                                <div class="info-block">
+                                    <span class="white-text info-label">Total won:</span>
+                                    <span class="thin-writing info-data green-dark-text">{{user1.player.win}}$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/randomBackground.js' %}"></script>
+    <script src="{% static 'js/updateAvatar.js' %}"></script>
+
+    {% include "MyCasino/footer.html" %}
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var elems = document.querySelectorAll(".sidenav");
+            var options = {};
+            var instances = M.Sidenav.init(elems, options);
+        });
+    </script>
+</body>
+
+</html>

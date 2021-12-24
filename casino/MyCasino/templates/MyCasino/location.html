@@ -1,0 +1,93 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/FAQ.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Work #2</title>
+</head>
+
+<body>
+    {% include "MyCasino/navbar.html" %}
+    <div class="background">
+        <div class="inner-canvas" style="padding-bottom: 5%; padding-top: 5%">
+            <div class="container" style="width: 100%; background-color: rgba(27,27,27,0.9)">
+                <h1 class="white-text center-align" style="padding: 5%;">You can find us in theese cities</h1>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <ul class="collapsible" style="border: 0px transparent black !important; outline: none">
+                            <li style="border: 0px transparent black !important; outline: none">
+                                <div class="collapsible-header thin-writing element-header">
+                                    Almaty (KZ)
+                                </div>
+                                <div class="collapsible-body black-text thin-writing">
+                                    <ul>
+                                        <li>Kazakhstan</li>
+                                        <li>Almaty</li>
+                                        <li>Industrial street 6/1</li>
+                                        <li>+77273916070</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li style="border: 0px transparent black !important; outline: none">
+                                <div class="collapsible-header thin-writing element-header">
+                                    Las-Vegas (US)
+                                </div>
+                                <div class="collapsible-body black-text thin-writing">
+                                    <ul>
+                                        <li>United States</li>
+                                        <li>Las-Vegas</li>
+                                        <li>4111 Boulder Hwy, Las Vegas, NV 89121</li>
+                                        <li>+17024327777</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li style="border: 0px transparent black !important; outline: none">
+                                <div class="collapsible-header thin-writing element-header">
+                                    Ontario (CA)
+                                </div>
+                                <div class="collapsible-body black-text thin-writing">
+                                    <ul>
+                                        <li>Canada</li>
+                                        <li>Ontario</li>
+                                        <li>5899 Rama Rd, Orillia, ON L3V 6H6</li>
+                                        <li>+18008327529</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m6 map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2034.107955833153!2d77.04671533357164!3d43.86281195720423!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3882f1a49857cd31%3A0x15083faf9651f9b0!2sAstoria%20Casino!5e0!3m2!1sru!2skz!4v1639417954186!5m2!1sru!2skz"
+                            width="100%" style="border:0; aspect-ratio: 1;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "MyCasino/footer.html" %}
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/locationMapping.js' %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var elems = document.querySelectorAll(".collapsible");
+            var options = {};
+            var instances = M.Collapsible.init(elems, options);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var elems = document.querySelectorAll(".sidenav");
+            var options = {};
+            var instances = M.Sidenav.init(elems, options);
+        });
+    </script>
+</body>
+
+</html>

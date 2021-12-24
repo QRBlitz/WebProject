@@ -1,0 +1,79 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    <title>Update Balance</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="card my-4 p-3">
+                <div class="row main">
+                    <div class="col-12"><span>Cart</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Shipping confirmation</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Credit card checkout</span></div>
+                </div>
+                <div class="row justify-content-center mrow">
+                    <div class="col-12"> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" width="35px" height="35px" /> <img src="https://img.icons8.com/color/48/000000/visa.png" width="35px" height="35px" /> <img src="https://img.icons8.com/color/48/000000/paypal.png"
+                            width="35px" height="35px" /> </div>
+                </div>
+                <form class="form-card" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group"> <input type="text" name="number" class="form-control p-0" id="number" required><label class="form-control-placeholder p-0" for="number">CardNumber</label> </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group"> <input type="text" name="name" class="form-control p-0" id="name" required><label class="form-control-placeholder p-0" for="name">Cardholder'sName</label> </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-12">
+                            <div class="form-group"> <input type="text" name="sdate" class="form-control p-0" id="sdate" required><label class="form-control-placeholder p-0" for="sdate">StartDate</label> </div>
+                        </div>
+                        <div class="col-sm-4 col-12">
+                            <div class="form-group"> <input type="text" name="expdate" class="form-control p-0" id="expdate" required><label class="form-control-placeholder p-0" for="expdate">ExpirationDate</label> </div>
+                        </div>
+                        <div class="col-sm-4 col-12">
+                            <div class="form-group"> <input type="password" name="passw" class="form-control p-0" id="passw" required><label class="form-control-placeholder p-0" for="passw">CVV</label> </div>
+                        </div>
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group"> <input type="number" name="amount" class="form-control p-0 amount-field" id="amount" required min="10"><label class="form-control-placeholder p-0" for="amount">Amount</label> </div>
+                        </div>
+                    </div>
+                    <div class="row lrow mt-4 mb-3">
+                        <div class="col-sm-8 col-12">
+                            <h3>Grand Total:</h3>
+                        </div>
+                        <div class="col-sm-4 col-12">
+                            <h5 class="total-grand">$0</h5>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-12"> <button type="submit" class="btn btn-primary btn-block">Pay</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let amountShowField = document.querySelector(".total-grand")
+        let amountInputField = document.querySelector(".amount-field")
+        amountInputField.oninput = (e) => {
+            amountShowField.innerHTML = "$" + e.target.value
+            if (e.target.value == "")
+                amountShowField.innerHTML = "$0"
+        }
+    </script>
+</body>
+
+</html>
